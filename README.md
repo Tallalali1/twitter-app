@@ -19,3 +19,5 @@ gem 'devise-bootstrap-views'
 rails generate devise:install
 rails generate devise User
 rails db:migrate
+
+rails generate bootstrap:install static
