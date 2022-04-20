@@ -13,3 +13,9 @@ rails db:migrate
 User.joins(:comments).where('comments.tweet_id = ?', Tweet.last.id)
 User.joins(:comments).where('comments.tweet_id' => Tweet.last.id)
 
+gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+rails generate devise:install
+rails generate devise User
+rails db:migrate
