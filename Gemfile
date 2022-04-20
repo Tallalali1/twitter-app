@@ -25,7 +25,7 @@ gem 'enumerize'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
-
+gem 'sprockets-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
