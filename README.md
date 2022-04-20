@@ -10,3 +10,6 @@ rails g migration add_status_to_reactions status:integer # enums migration comma
 
 rails db:migrate
 
+User.joins(:comments).where('comments.tweet_id = ?', Tweet.last.id)
+User.joins(:comments).where('comments.tweet_id' => Tweet.last.id)
+
