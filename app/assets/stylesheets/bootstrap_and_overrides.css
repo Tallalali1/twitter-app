@@ -1,0 +1,13 @@
+.form-width {
+    width: 40% !important;
+    margin-inline: auto;
+}
+
+.checkbox {
+    max-width: 90%;
+    margin-inline: auto;
+}
+.margin-cb {
+    margin-inline: auto;
+    max-width: 25%;
+}
