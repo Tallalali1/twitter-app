@@ -1,0 +1,25 @@
+<%= render 'shared/navbar' %>
+
+<h1 class="text-center">Tweets Index</h1>
+<div class="card text-center">
+  <% @tweets.each do |tweet| %>
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= tweet.title%></h5>
+    <p class="card-text"> <%= tweet.description %>.</p>
+    <a href="#" class="btn btn-primary"> <%= tweet.user.name %></a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+   <% end %>
+</div>
+      
+
+        
+       
+
+     
+      
