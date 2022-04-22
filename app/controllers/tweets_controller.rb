@@ -1,12 +1,13 @@
 class TweetsController < ApplicationController
 
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   def show
 
   end
 
   def index
     @tweets = Tweet.all
-    
+
   end
 
   def new
@@ -14,6 +15,7 @@ class TweetsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -28,12 +30,17 @@ class TweetsController < ApplicationController
   end
 
   def update
-
+    if @tweet.update(tweet_params)
+      flash[:notice] = "Tweet was updated successfully."
+      redirect_to @tweet
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @tweet.destroy
-    redirect_to root_path
+    redirect_to tweets_path
   end
 
  private

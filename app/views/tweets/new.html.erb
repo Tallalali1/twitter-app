@@ -1,0 +1,30 @@
+<%= render 'shared/navbar' %>
+
+<h1 class="text-center">Create new Tweet</h1>
+<div class="card text-center">
+ 
+
+   <%= form_with scope: :tweet, url: tweets_path, local: true do |f| %>
+  <div class="card-header">
+    User:
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+    <%= f.label :title, class: "col-1 col-form-label text-left" %> 
+        
+    <%= f.text_field :title, class: "col-6 col-form-label" %>
+        
+    </h5>
+    <p class="card-text"> 
+    <%= f.label :description, class: "col-2 col-form-label align-top" %>
+           
+    <%= f.text_area :description, rows: 8, class: "col-8 col-form-label" %>
+
+    </p>
+    <p><%= f.submit class:"btn btn-primary"%></p>
+  </div>
+
+
+  <% end %>
+</div>
+      

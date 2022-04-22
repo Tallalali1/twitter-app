@@ -2,18 +2,31 @@
 
 <h1 class="text-center">Tweets Index</h1>
 <div class="card text-center">
+<p>
+ <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success "  %>
+</p>  
   <% @tweets.each do |tweet| %>
+  
   <div class="card-header">
-    Featured
+    User: <%= tweet.user.name %>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= tweet.title%></h5>
     <p class="card-text"> <%= tweet.description %>.</p>
-    <a href="#" class="btn btn-primary"> <%= tweet.user.name %></a>
+    <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success" %>
+    <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-outline-danger" %>
+ 
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+     <ul>
+  <% tweet.comments.each do |comment| %>
+  <li class='mb-3'>
+   <%= comment.description %>
+  </li>
+  <% end %>
+  </ul>
   </div>
+
    <% end %>
 </div>
       
