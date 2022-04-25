@@ -13,6 +13,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= tweet.title%></h5>
     <p class="card-text"> <%= tweet.description %>.</p>
+     <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %>
     <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success" %>
     <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-outline-danger" %>
  
