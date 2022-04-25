@@ -5,7 +5,10 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
-
+  <div class="col">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control col form-width", autofocus: true, autocomplete: "name" %>
+  </div>
   <div class="form-row col-xs-4">
     <%= f.label :email %>
 
