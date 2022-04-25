@@ -7,7 +7,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-
+    @comment = Comment.new
   end
 
   def new

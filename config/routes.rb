@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :tweets
 
-
+  resources :comments, only: %i[new create destroy] do
+    # resources :reactions, only: %i[create]
+  end
 
 end
