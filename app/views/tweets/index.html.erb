@@ -19,12 +19,20 @@
  
   </div>
   <div class="card-footer text-muted">
+  <div class="pl-5 py-2">
+      <div class="col-10 mt-3" id='new-comment'>
+        <%= render 'comments/form', object: tweet %>
+      </div>
+  </div>
+
      <ul>
   <% tweet.comments.each do |comment| %>
-  <li class='mb-3'>
+  <li class='mb-3' id='comment-index' >
    <%= comment.description %>
   </li>
+    <%= link_to "Delete Comment", comment_path(comment), class:"btn btn-outline-danger" , remote: true, method: :delete, data: { confirm: "Are you sure?"} %>
   <% end %>
+
   </ul>
   </div>
 
