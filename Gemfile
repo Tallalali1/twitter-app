@@ -28,6 +28,7 @@ gem 'devise-bootstrap-views'
 gem 'sprockets-rails'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
+gem 'ckeditor_rails_6'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
