@@ -2,46 +2,33 @@
 
 <h1 class="text-center">Tweets Index</h1>
 <div class="card text-center">
-<p>
- <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success "  %>
-</p>  
+  <p>
+    <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success " %>
+  </p>
   <% @tweets.each do |tweet| %>
-  
-  <div class="card-header">
-    User: <%= tweet.user.name %>
-  </div>
+
+  <div class="card-header">User: <%= tweet.user.name %></div>
   <div class="card-body">
     <h5 class="card-title"><%= tweet.title%></h5>
-    <p class="card-text"> <%= tweet.description %>.</p>
-     <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %>
-    <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success" %>
-    <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-outline-danger" %>
- 
+    <p class="card-text"><%= tweet.description %>.</p>
+    <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %>
+    <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success"
+    %> <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: {
+    confirm: "Are you sure?" }, class:"btn btn-outline-danger" %>
   </div>
   <div class="card-footer text-muted">
-  <div class="pl-5 py-2">
-      <div class="col-10 mt-3" id='new-comment'>
+    <div class="pl-5 py-2">
+      <div class="col-12 mt-3" id="new-comment">
         <%= render 'comments/form', object: tweet %>
       </div>
+    </div>
+
+    <ul id="tweet-<%= tweet.id %>-comments-container">
+      <% tweet.comments.each do |comment| %>
+        <%= render 'comments/show_comment', object: comment %>
+      <% end %>
+    </ul>
   </div>
 
-     <ul>
-  <% tweet.comments.each do |comment| %>
-  <li class='mb-3' id='comment-index' >
-   <%= comment.description %>
-  </li>
-    <%= link_to "Delete Comment", comment_path(comment), class:"btn btn-outline-danger" , remote: true, method: :delete, data: { confirm: "Are you sure?"} %>
   <% end %>
-
-  </ul>
-  </div>
-
-   <% end %>
 </div>
-      
-
-        
-       
-
-     
-      

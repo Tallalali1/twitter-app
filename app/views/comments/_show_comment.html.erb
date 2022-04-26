@@ -1,0 +1,3 @@
+<li class="mb-3"><%= object.description %></li>
+<%= link_to "Delete Comment", comment_path(object), class:"btn btn-outline-danger" , remote: true, method: :delete, data: { confirm: "Are you sure?"} %> 
+

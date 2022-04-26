@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Tweet was created successfully."
       # render :json => { :sent => true}
     end
-    # redirect_to @tweet
+ 
   end
 
   def destroy
