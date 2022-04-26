@@ -9,22 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
 
+require("jquery");
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-window.addEventListener("load", () => {
-
-  const element = document.querySelector("#new-comment");
-  element.addEventListener("ajax:success", (event) => {
-    const [_data, _status, xhr] = event.detail;
-    element.insertAdjacentHTML("beforeend", xhr.responseText);
-    // const comment = document.createElement("#comment-index");
-    // img.src = result.show.image.medium;
-    // document.body.append(comment);
-    console.log("hi")
-  });
-  element.addEventListener("ajax:error", () => {
-    element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
-  });
-});
