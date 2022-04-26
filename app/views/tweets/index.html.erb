@@ -24,7 +24,7 @@
     </div>
 
     <ul id="tweet-<%= tweet.id %>-comments-container">
-      <% tweet.comments.each do |comment| %>
+      <% tweet.comments.reverse.each do |comment| %>
         <%= render 'comments/show_comment', object: comment %>
       <% end %>
     </ul>
