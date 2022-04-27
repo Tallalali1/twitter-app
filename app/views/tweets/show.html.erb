@@ -10,9 +10,9 @@
   <p>
   <% pre_reaction = @tweet.reactions.find { |reaction| reaction.user_id == current_user.id} %>
 <% if pre_reaction %>
-  <%= button_to 'Unlike', tweet_reaction_path(@tweet, pre_reaction), method: :delete %>
+  <%= button_to 'Unlike', tweet_reaction_path(@tweet, pre_reaction), remote: true, method: :delete %>
 <% else %>
-  <%= button_to 'Like', tweet_reactions_path(@tweet), method: :post %>
+  <%= button_to 'Like', tweet_reactions_path(@tweet), remote: true, method: :post %>
 <% end %>
   </p>
 <div>
