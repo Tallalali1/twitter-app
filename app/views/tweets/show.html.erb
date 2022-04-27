@@ -6,6 +6,12 @@
     <h5 class="card-title"><%= @tweet.title%></h5>
     <p class="card-text"><%= @tweet.description %>.</p>
   </div>
+<div>
+  <p>
+       <%= link_to "Back to Index page", tweets_path, class: "btn-outline-dark" %>
+     
+  </p>
+</div> 
   <div class="card-footer text-muted">
     <ul>
       <% @tweet.comments.reverse.each do |comment| %>
