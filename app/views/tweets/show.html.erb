@@ -19,9 +19,9 @@
     <ul id="tweet-<%= @tweet.id %>-comments-container">
       <% @tweet.comments.reverse.each do |comment| %>
       <li class="mb-3">
-        <div class="container">
+
         <%= render 'comments/show_comment', object: comment %>
-        </div>
+
       </li>
       <% end %>
     </ul>
