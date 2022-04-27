@@ -6,6 +6,8 @@
     <h5 class="card-title"><%= @tweet.title%></h5>
     <p class="card-text"><%= @tweet.description %>.</p>
   </div>
+  <p><%= @tweet.reactions.count %> <%= (@tweet.reactions.count) == 1 ? 'reaction' : 'reactions'%></p>
+  <%= button_to 'Like', tweet_reactions_path(@tweet), method: :post %>
 <div>
   <p>
        <%= link_to "Back to Index page", tweets_path, class: "btn-outline-dark" %>

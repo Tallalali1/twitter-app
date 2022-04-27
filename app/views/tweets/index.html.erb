@@ -11,6 +11,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= tweet.title%></h5>
     <p class="card-text"><%= tweet.description %>.</p>
+    <p><%= tweet.reactions.count %> <%= (tweet.reactions.count) == 1 ? 'reaction' : 'reactions'%></p>
     <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %>
     <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success"
     %> <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: {
