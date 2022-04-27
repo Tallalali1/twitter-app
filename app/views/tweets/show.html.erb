@@ -1,24 +1,18 @@
 <%= render 'shared/navbar' %>
 <h1 class="text-center">Tweets Show</h1>
 <div class="card text-center">
-
-  <div class="card-header">
-    User: <%= @tweet.user.name if @tweet.user %>
-  </div>
+  <div class="card-header">User: <%= @tweet.user.name if @tweet.user %></div>
   <div class="card-body">
     <h5 class="card-title"><%= @tweet.title%></h5>
-    <p class="card-text"> <%= @tweet.description %>.</p>
-
+    <p class="card-text"><%= @tweet.description %>.</p>
   </div>
   <div class="card-footer text-muted">
-  <ul>
-  <% @tweet.comments.each do |comment| %>
-  <li class='mb-3'>
-   <%= comment.description %>
-  </li>
-  <% end %>
-  </ul>
+    <ul>
+      <% @tweet.comments.reverse.each do |comment| %>
+      <li class="mb-3">
+        <%= render 'comments/show_comment', object: comment %>
+      </li>
+      <% end %>
+    </ul>
   </div>
-
 </div>
-      
