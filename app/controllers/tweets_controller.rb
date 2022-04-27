@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   def show
-
+    @comment = Comment.new
   end
 
   def index
