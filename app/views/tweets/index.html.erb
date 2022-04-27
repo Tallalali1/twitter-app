@@ -7,7 +7,9 @@
   </p>
   <% @tweets.each do |tweet| %>
 
-  <div class="card-header">User: <%= tweet.user.name %></div>
+  <div class="card-header">User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: "" %>
+            
+  </div>
   <div class="card-body">
     <h5 class="card-title"><%= tweet.title%></h5>
     <p class="card-text"><%= tweet.description %>.</p>

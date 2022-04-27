@@ -24,7 +24,7 @@
             <% end %>
             <% if user_signed_in? %>
             <li>
-            <%= current_user.email %>
+            <%= link_to "#{current_user.name}", user_path(current_user), class: "dropdown-item" %>
             </li>
             <% end%>
             <li><hr class="dropdown-divider"></li>

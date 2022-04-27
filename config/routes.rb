@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :tweets do
-    resources :reactions
+    resources :reactions, only: %i[create destroy]
   end
 
-  resources :comments, only: %i[new create destroy] do
-    # resources :reactions, only: %i[create]
+  resources :comments, only: %i[new create destroy]
+
+  resources :users, only: %i[index show] do
+    resources :follows
   end
 
 end
