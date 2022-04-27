@@ -1,5 +1,6 @@
 class ReactionsController < ApplicationController
    before_action :find_tweet
+   before_action :find_reaction, only: [:destroy]
   def create
     if already_liked?
       flash[:notice] = "You can't like more than once"
@@ -8,6 +9,15 @@ class ReactionsController < ApplicationController
     end
     redirect_to tweet_path(@tweet)
   end
+  def destroy
+    if !(already_liked?)
+      flash[:notice] = "Cannot unlike"
+    else
+      @reaction.destroy
+    end
+    redirect_to tweet_path(@tweet)
+  end
+
   private
   def find_tweet
     @tweet = Tweet.find(params[:tweet_id])
@@ -18,4 +28,7 @@ class ReactionsController < ApplicationController
     params[:tweet_id]).exists?
   end
 
+  def find_reaction
+    @reaction = @tweet.reactions.find(params[:id])
+  end
 end
