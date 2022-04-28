@@ -1,0 +1,17 @@
+<%= render 'shared/navbar' %>
+
+<h1 class="text-center">Users Show</h1>
+<div class="card text-center">
+
+
+  <div class="card-header">User: <%= @user.name %></div>
+    <%= button_to 'Follow', user_follows_path(@user), method: :post %>
+    
+  <p></p>
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.name%></h5>
+    <p class="card-text"><%= @user.email %></p>
+
+  </div> 
+
+</div>

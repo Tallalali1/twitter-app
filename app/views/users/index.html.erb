@@ -1,0 +1,15 @@
+<%= render 'shared/navbar' %>
+
+<h1 class="text-center">Users Index</h1>
+<div class="card text-center">
+
+   <% @users.each do |user| %>
+
+  <div class="card-header">User: <%= user.name %></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= user.name%></h5>
+    <p class="card-text"><%= user.email %>.</p>
+    <%= link_to 'Show', user_path(user), class:"btn btn-outline-primary" %>
+  </div> 
+  <% end %>
+</div>

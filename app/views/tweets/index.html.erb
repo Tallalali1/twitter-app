@@ -1,0 +1,37 @@
+<%= render 'shared/navbar' %>
+
+<h1 class="text-center">Tweets Index</h1>
+<div class="card text-center">
+  <p>
+    <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success " %>
+  </p>
+  <% @tweets.each do |tweet| %>
+
+  <div class="card-header">User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: "" %>
+            
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= tweet.title%></h5>
+    <p class="card-text"><%= tweet.description %>.</p>
+    <p><%= tweet.reactions.count %> <%= (tweet.reactions.count) == 1 ? 'reaction' : 'reactions'%></p>
+    <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %>
+    <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success"
+    %> <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: {
+    confirm: "Are you sure?" }, class:"btn btn-outline-danger" %>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="pl-5 py-2">
+      <div class="col-12 mt-3" id="new-comment">
+        <%= render 'comments/form', object: tweet %>
+      </div>
+    </div>
+
+    <ul id="tweet-<%= tweet.id %>-comments-container">
+      <% tweet.comments.last(3).reverse.each do |comment| %>
+      <li><%= comment.description %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <% end %>
+</div>

@@ -22,7 +22,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'enumerize'
-
+gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+gem 'sprockets-rails'
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
+gem 'ckeditor_rails_6'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -32,6 +38,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
