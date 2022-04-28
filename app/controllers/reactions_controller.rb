@@ -29,6 +29,6 @@ class ReactionsController < ApplicationController
   end
 
   def find_reaction
-    @reaction = @tweet.reactions.find(params[:id])
+    @reaction = @tweet.reactions.find_by(id: params[:id])
   end
 end
