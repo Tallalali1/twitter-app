@@ -1,5 +1,5 @@
 class ReactionsController < ApplicationController
-   before_action :find_tweet
+   before_action :find_tweet, only: [:create :destroy]
    before_action :find_reaction, only: [:destroy]
   def create
     if already_liked?
@@ -20,7 +20,7 @@ class ReactionsController < ApplicationController
 
   private
   def find_tweet
-    @tweet = Tweet.find(params[:tweet_id])
+    @tweet = Tweet.find_by(id: params[:tweet_id])
   end
 
   def already_liked?

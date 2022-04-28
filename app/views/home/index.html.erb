@@ -1,24 +1,20 @@
 <%= render 'shared/navbar' %>
-
-<div   class="bg-image"
-  style="
-    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp');
-    height: 100vh;
-  ">
-<div class="jumbotron" style="height: 780px;">
-<div class="container text-center">
-<p>
-<h1>Twitter app</h1>
-
-</div>
-<p class="container text-center mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, doloribus? Impedit tenetur eaque amet corrupti culpa! Quae eos nam quas, porro, ex tempora eaque placeat nesciunt reprehenderit, ullam deleniti corrupti?</p>
-<div class="d-flex align-items-center justify-content-center mt-5 pt-5">
-
-<%= link_to "Sign up!", new_user_registration_path, class: "btn btn-success btn-lg" %>
-
-
-</div>
-</div>
+<div class="home-img">
+  <div class="jumbotron" style="height: 780px">
+    <div class="container text-center">
+      <p></p>
+      <h1>Twitter app</h1>
+    </div>
+    <p class="container text-center mt-5">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, doloribus?
+      Impedit tenetur eaque amet corrupti culpa! Quae eos nam quas, porro, ex
+      tempora eaque placeat nesciunt reprehenderit, ullam deleniti corrupti?
+    </p>
+    <div class="d-flex align-items-center justify-content-center mt-5 pt-5">
+      <%= link_to "Sign up!", new_user_registration_path, class: "btn
+      btn-success btn-lg" %>
+    </div>
+  </div>
 </div>
 
 <div class="card text-center">
@@ -28,5 +24,3 @@
     <a href="#" class="btn btn-primary">Chat</a>
   </div>
 </div>
-
- <%# d-flex align-items-start flex-column bd-highlight mb-3 padding-start text-white %>

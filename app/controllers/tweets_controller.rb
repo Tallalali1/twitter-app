@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   def show
     @comment = Comment.new
@@ -52,7 +51,5 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:title, :description)
   end
-
-
 
 end

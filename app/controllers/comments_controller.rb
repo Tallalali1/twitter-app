@@ -5,18 +5,18 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    @tweet = Tweet.find(params[:comment][:tweet_id])
-    if @comment.save
-      flash[:notice] = "Tweet was created successfully."
-      # render :json => { :sent => true}
-    end
- 
+    @tweet = Tweet.find_by(id: params[:comment][:tweet_id])
+    if @tweet.present?
+      if @comment.save
+        flash[:notice] = "Tweet was created successfully."
+      end
+    end 
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find_by(id: params[:id])
     return unless current_user.id == @comment.user_id
-    @comment.destroy
+    @comment.destroy if @comment.present?
     flash[:success] = 'Comment deleted'
     redirect_to tweets_path
   end
