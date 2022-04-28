@@ -1,12 +1,10 @@
-
 <%= form_for @comment, id: "new-comment", remote: true do |f| %>
-
-    <%= render "devise/shared/error_messages", resource: @comment %>
-    <%= f.hidden_field :tweet_id, :value => object.id %>
-    <div class="form-group">
-      <%= f.text_area :description, class: "comment-box", placeholder: "Type your comment..." %>
-    </div>
-    <div>
-      <%= f.submit 'Comment', class:"btn bg-secondary m-0" %>
-    </div>
+  <%= render "devise/shared/error_messages", resource: @comment %>
+  <%= f.hidden_field :tweet_id, :value => object.id %>
+  <div class="form-group">
+    <%= f.text_area :description, class: "comment-box", placeholder: "Type your comment..." %>
+  </div>
+  <div>
+    <%= f.submit 'Comment', class:"btn bg-secondary m-0" %>
+  </div>
 <% end %>

@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-    has_many :tweets
-    has_many :comments
+    has_many :tweets, dependent: :destroy
+    has_many :comments, dependent: :destroy
     has_many :reactions, dependent: :destroy
     # Will return an array of follows for the given user instance
     has_many :received_follows, foreign_key: :followed_user_id, class_name: "Follow"

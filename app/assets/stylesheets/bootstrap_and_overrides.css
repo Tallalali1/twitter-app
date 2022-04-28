@@ -2,7 +2,6 @@
     width: 40% !important;
     margin-inline: auto;
 }
-
 .checkbox {
     max-width: 90%;
     margin-inline: auto;
@@ -10,4 +9,9 @@
 .margin-cb {
     margin-inline: auto;
     max-width: 25%;
+}
+.home-img {
+    background-image: url("blue.jpg");
+    background-size: cover;
+    background-position: center;
 }
