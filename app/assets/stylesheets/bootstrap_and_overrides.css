@@ -35,8 +35,6 @@
   align-items: center;
 }
 .center {
-
-
   justify-content: center;
 }
 
@@ -64,5 +62,5 @@
   color: black;
 }
 .main-border {
-    border: 1px solid black;
+  border: 1px solid black;
 }

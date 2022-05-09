@@ -9,8 +9,7 @@
   <% @tweets.each do |tweet| %>
 
   <div class="cards text-blue" style="background: antiquewhite">
-    User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class:
-    "text-black" %>
+    User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: "text-black" %>
   </div>
 
   <div class="containers center">
@@ -21,17 +20,14 @@
       <hr />
       <p class=""><%= tweet.description %>.</p>
       <p>
-        <%= tweet.reactions.count %> <%= (tweet.reactions.count) == 1 ?
-        'reaction' : 'reactions'%>
+        <%= tweet.reactions.count %> <%= (tweet.reactions.count) == 1 ? 'reaction' : 'reactions'%>
       </p>
     </div>
     <div>
       <p>
-        <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary"
-        %> <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn
-        btn-outline-success" %> <%= link_to 'Delete', tweet_path(tweet), method:
-        :delete, data: { confirm: "Are you sure?" }, class:"btn
-        btn-outline-danger" %>
+        <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %> 
+        <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success" %> 
+        <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger" %>
       </p>
     </div>
   </div>
@@ -45,12 +41,10 @@
 
     <ul id="tweet-<%= tweet.id %>-comments-container" class="list-none">
       <% tweet.comments.last(3).reverse.each do |comment| %>
-      <li class="comment-box cards"><%= comment.description %></li>
+        <li class="comment-box cards"><%= comment.description %></li>
       <% end %>
     </ul>
-
-    
   </div>
-<hr>
+  <hr />
   <% end %>
 </div>

@@ -4,23 +4,22 @@
   <div class="cards text-blue" style="background: antiquewhite">
     User: <%= @tweet.user.name if @tweet.user %>
   </div>
-  <div class="">
+  <div>
     <div class="cards">
       <h5 class=""><%= @tweet.title%></h5>
       <hr />
-      <p class=""><%= @tweet.description %>.</p>
+      <p class=""><%= @tweet.description %></p>
     </div>
   </div>
   <p>
-    <%= @tweet.reactions.count %> <%= (@tweet.reactions.count) == 1 ? 'reaction'
-    : 'reactions'%>
+    <%= @tweet.reactions.count %> <%= (@tweet.reactions.count) == 1 ? 'reaction' : 'reactions'%>
   </p>
   <p>
-    <% pre_reaction = @tweet.reactions.find { |reaction| reaction.user_id ==
-    current_user.id} %> <% if pre_reaction %> <%= button_to 'Unlike',
-    tweet_reaction_path(@tweet, pre_reaction), remote: true, method: :delete %>
-    <% else %> <%= button_to 'Like', tweet_reactions_path(@tweet), remote: true,
-    method: :post %> <% end %>
+    <% pre_reaction = @tweet.reactions.find { |reaction| reaction.user_id == current_user.id} %> 
+    <% if pre_reaction %> 
+      <%= button_to 'Unlike',tweet_reaction_path(@tweet, pre_reaction), remote: true, method: :delete %>
+    <% else %> 
+      <%= button_to 'Like', tweet_reactions_path(@tweet), remote: true, method: :post %> <% end %>
   </p>
   <div>
     <p>
@@ -28,12 +27,11 @@
       %>
     </p>
   </div>
-<div class="pl-5 py-2">
-  <div class="col-12 mt-3" id="new-comment">
-    <%= render 'comments/form', object: @tweet %>
+  <div class="pl-5 py-2">
+    <div class="col-12 mt-3" id="new-comment">
+      <%= render 'comments/form', object: @tweet %>
+    </div>
   </div>
-      
-</div>
   <div class="card-footer text-muted">
     <ul id="tweet-<%= @tweet.id %>-comments-container" class="list-none">
       <% @tweet.comments.reverse.each do |comment| %>
