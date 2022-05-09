@@ -15,3 +15,11 @@
     background-size: cover;
     background-position: center;
 }
+.list-none {
+    list-style-type: none;
+}
+.comment-box {
+    border: solid;
+    border-radius: 25px;
+    border-width: 1em;
+}

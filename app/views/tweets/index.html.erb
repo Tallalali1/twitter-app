@@ -26,9 +26,10 @@
       </div>
     </div>
 
-    <ul id="tweet-<%= tweet.id %>-comments-container">
+    <ul id="tweet-<%= tweet.id %>-comments-container" class="list-none">
       <% tweet.comments.last(3).reverse.each do |comment| %>
-      <li><%= comment.description %></li>
+      <li class="comment-box"
+      ><%= comment.description %></li>
       <% end %>
     </ul>
   </div>
