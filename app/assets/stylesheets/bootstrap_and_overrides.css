@@ -63,3 +63,6 @@
 .text-black {
   color: black;
 }
+.main-border {
+    border: 1px solid black;
+}

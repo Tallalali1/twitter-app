@@ -1,27 +1,24 @@
 <%= render 'shared/navbar' %>
 
 <h1 class="text-center">Tweets Index</h1>
-  <p class="link-center">
-    <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success " %>
-  </p>
-<div class="containers center">
+<p class="link-center">
+  <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success " %>
+</p>
 
+<div class="containers center">
   <% @tweets.each do |tweet| %>
 
-
-    <div class="cards text-blue" style="background: antiquewhite;">
-      User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: "text-black"
-      %>
-
+  <div class="cards text-blue" style="background: antiquewhite">
+    User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class:
+    "text-black" %>
   </div>
-  
 
-    <div class="containers center">
+  <div class="containers center">
     <div class="cards">
       <div>
         <h5 class=""><%= tweet.title%></h5>
       </div>
-      <hr>
+      <hr />
       <p class=""><%= tweet.description %>.</p>
       <p>
         <%= tweet.reactions.count %> <%= (tweet.reactions.count) == 1 ?
@@ -30,12 +27,13 @@
     </div>
     <div>
       <p>
-    <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary" %>
-    <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn btn-outline-success"
-    %> <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: {
-    confirm: "Are you sure?" }, class:"btn btn-outline-danger" %>
-  </p>
-  </div>
+        <%= link_to 'Show', tweet_path(tweet), class:"btn btn-outline-primary"
+        %> <%= link_to 'Edit', edit_tweet_path(tweet), class:"btn
+        btn-outline-success" %> <%= link_to 'Delete', tweet_path(tweet), method:
+        :delete, data: { confirm: "Are you sure?" }, class:"btn
+        btn-outline-danger" %>
+      </p>
+    </div>
   </div>
 
   <div class="card-footer text-muted">
@@ -50,7 +48,9 @@
       <li class="comment-box cards"><%= comment.description %></li>
       <% end %>
     </ul>
-  </div>
 
+    
+  </div>
+<hr>
   <% end %>
 </div>

@@ -1,36 +1,44 @@
 <%= render 'shared/navbar' %>
 <h1 class="text-center">Tweets Show</h1>
-<div class="card text-center">
-  <div class="card-header">User: <%= @tweet.user.name if @tweet.user %></div>
-  <div class="card-body">
-    <h5 class="card-title"><%= @tweet.title%></h5>
-    <p class="card-text"><%= @tweet.description %>.</p>
+<div class="containers center">
+  <div class="cards text-blue" style="background: antiquewhite">
+    User: <%= @tweet.user.name if @tweet.user %>
   </div>
-   <p><%= @tweet.reactions.count %> <%= (@tweet.reactions.count) == 1 ? 'reaction' : 'reactions'%></p>
+  <div class="">
+    <div class="cards">
+      <h5 class=""><%= @tweet.title%></h5>
+      <hr />
+      <p class=""><%= @tweet.description %>.</p>
+    </div>
+  </div>
   <p>
-  <% pre_reaction = @tweet.reactions.find { |reaction| reaction.user_id == current_user.id} %>
-<% if pre_reaction %>
-  <%= button_to 'Unlike', tweet_reaction_path(@tweet, pre_reaction), remote: true, method: :delete %>
-<% else %>
-  <%= button_to 'Like', tweet_reactions_path(@tweet), remote: true, method: :post %>
-<% end %>
+    <%= @tweet.reactions.count %> <%= (@tweet.reactions.count) == 1 ? 'reaction'
+    : 'reactions'%>
   </p>
-<div>
   <p>
-       <%= link_to "Back to Index page", tweets_path, class: "btn-outline-dark" %>
-     
+    <% pre_reaction = @tweet.reactions.find { |reaction| reaction.user_id ==
+    current_user.id} %> <% if pre_reaction %> <%= button_to 'Unlike',
+    tweet_reaction_path(@tweet, pre_reaction), remote: true, method: :delete %>
+    <% else %> <%= button_to 'Like', tweet_reactions_path(@tweet), remote: true,
+    method: :post %> <% end %>
   </p>
-</div> 
-      <div class="col-12 mt-3" id="new-comment">
-        <%= render 'comments/form', object: @tweet %>
-      </div>
+  <div>
+    <p>
+      <%= link_to "Back to Index page", tweets_path, class: "btn-outline-dark"
+      %>
+    </p>
+  </div>
+<div class="pl-5 py-2">
+  <div class="col-12 mt-3" id="new-comment">
+    <%= render 'comments/form', object: @tweet %>
+  </div>
+      
+</div>
   <div class="card-footer text-muted">
-    <ul id="tweet-<%= @tweet.id %>-comments-container">
+    <ul id="tweet-<%= @tweet.id %>-comments-container" class="list-none">
       <% @tweet.comments.reverse.each do |comment| %>
-      <li class="mb-3">
-
-        <%= render 'comments/show_comment', object: comment %>
-
+      <li class="">
+        <%= render 'comments/show_comment', remote: true, object: comment %>
       </li>
       <% end %>
     </ul>
