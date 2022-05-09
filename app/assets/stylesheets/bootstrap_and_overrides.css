@@ -1,17 +1,66 @@
 .form-width {
-    width: 40% !important;
-    margin-inline: auto;
+  width: 40% !important;
+  margin-inline: auto;
 }
 .checkbox {
-    max-width: 90%;
-    margin-inline: auto;
+  max-width: 90%;
+  margin-inline: auto;
 }
 .margin-cb {
-    margin-inline: auto;
-    max-width: 25%;
+  margin-inline: auto;
+  max-width: 25%;
 }
 .home-img {
-    background-image: url("blue.jpg");
-    background-size: cover;
-    background-position: center;
+  background-image: url("blue.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.list-none {
+  list-style-type: none;
+}
+.comment-box {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.containers {
+  width: 80%;
+  min-height: 50vh;
+
+  display: flex;
+
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  flex-flow: column;
+  align-items: center;
+}
+.center {
+  justify-content: center;
+}
+
+.cards {
+  background-color: white;
+  width: 250px;
+  min-height: 250px * 1.618;
+  display: -ms-flexbox;
+  display: flex;
+
+  flex-direction: column;
+  padding: 20px;
+  margin: 5px;
+  box-shadow: -20px -20px 0px 0px lighten(salmon, 5%);
+  border-radius: 10px;
+}
+.link-center {
+  justify-content: center;
+  display: flex;
+}
+.text-blue {
+  color: blue;
+}
+.text-black {
+  color: black;
+}
+.main-border {
+  border: 1px solid black;
 }
