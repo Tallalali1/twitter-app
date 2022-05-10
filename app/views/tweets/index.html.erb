@@ -5,15 +5,16 @@
   <%= link_to 'Create new Tweet', new_tweet_path, class:"text-success " %>
 </p>
 
+<article class="main-flex">
 <div class="containers center">
   <% @tweets.each do |tweet| %>
 
-  <div class="cards text-blue" style="background: antiquewhite">
-    User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: "text-black" %>
-  </div>
 
-  <div class="containers center">
+  <div class="tweets">
     <div class="cards">
+      <div class="text-blue" style="background: antiquewhite">
+        User: <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: "text-black" %>
+      </div>
       <div>
         <h5 class=""><%= tweet.title%></h5>
       </div>
@@ -30,21 +31,18 @@
         <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger" %>
       </p>
     </div>
-  </div>
-
-  <div class="card-footer text-muted">
-    <div class="pl-5 py-2">
+    <div class="pl-5 py-2 card-footer text-muted">
       <div class="col-12 mt-3" id="new-comment">
         <%= render 'comments/form', object: tweet %>
       </div>
+      <ul id="tweet-<%= tweet.id %>-comments-container" class="list-none">
+        <% tweet.comments.last(3).reverse.each do |comment| %>
+          <li class="comment-box cards"><%= comment.description %></li>
+        <% end %>
+      </ul>
     </div>
-
-    <ul id="tweet-<%= tweet.id %>-comments-container" class="list-none">
-      <% tweet.comments.last(3).reverse.each do |comment| %>
-        <li class="comment-box cards"><%= comment.description %></li>
-      <% end %>
-    </ul>
   </div>
   <hr />
   <% end %>
 </div>
+</article>
