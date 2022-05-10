@@ -8,7 +8,7 @@
     <% if current_user.id != @user.id %>
       <% pre_follow = @follows.where("follower_id=?", current_user.id).all.where("followed_user_id=?", @user.id) %> 
       <% if pre_follow.length > 0 %> 
-        <%= button_to 'Unfollow', user_follow_path(current_user.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= button_to 'Unfollow', user_follow_path(current_user.id), remote: true, method: :delete, data: { confirm: "Are you sure?" } %>
       <% else %> <%= button_to 'Follow', user_follows_path(@user), remote: true, method: :post %>
       <% end %>
     <% end %>
