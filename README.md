@@ -23,3 +23,5 @@ rails db:migrate
 rails generate bootstrap:install static
 
 rails g devise:views:bootstrap_templates
+
+./bin/webpack-dev-server
