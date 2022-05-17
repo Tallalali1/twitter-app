@@ -23,16 +23,9 @@
 }
 
 .containers {
-  width: 80%;
-  min-height: 50vh;
-
+  min-height: 200vh;
   display: flex;
-
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  flex-flow: column;
-  align-items: center;
 }
 .center {
   justify-content: center;
@@ -63,4 +56,16 @@
 }
 .main-border {
   border: 1px solid black;
+}
+.main-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tweets {
+  width: 30em;
+  margin-right: 10em;
+  margin-left: 10em;
+}
+.hidden {
+  display: none;
 }
