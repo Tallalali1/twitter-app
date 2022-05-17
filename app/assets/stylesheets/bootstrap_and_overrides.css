@@ -66,3 +66,6 @@
   margin-right: 10em;
   margin-left: 10em;
 }
+.hidden {
+  display: none;
+}
