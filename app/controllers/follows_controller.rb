@@ -1,5 +1,6 @@
 class FollowsController < ApplicationController
   before_action :get_follow, only: [:destroy]
+  
   def create
     if !already_followed?
       if user_params.to_i != current_user.id
@@ -8,11 +9,10 @@ class FollowsController < ApplicationController
        flash[:alert] = "Can not follow self."
       end
     end
-    redirect_to user_path(user_params)
   end
+
   def destroy
     @follow.destroy if already_followed?
-    redirect_to user_path
   end
 
   private
