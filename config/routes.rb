@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :comments, only: %i[new create destroy]
 
   resources :users, only: %i[index show] do
-    resources :follows
+    resources :follows, only: %i[create destroy]
   end
 
 end
